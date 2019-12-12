@@ -1,87 +1,88 @@
-import React from "react";
-import fetch from "isomorphic-unfetch";
-import Head from "next/head";
-import Link from "next/link";
-import ReactMarkdown from "react-markdown";
+import React from 'react'
+import Head from 'next/head'
+import Nav from '../components/nav'
 
-const Home = ({ posts }) => (
-  <div className="container">
+const Home = () => (
+  <div>
     <Head>
       <title>Home</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
+    <Nav />
+
     <div className="hero">
-      <h1 className="hero-title">Selman Kahya</h1>
-      <div className="hero-social-links">
-        <Link href="https://medium.com/@selmankahya">
-          <a className="social-link">Medium</a>
-        </Link>
-        <Link href="https://www.twitter.com/selmankahyax">
-          <a className="social-link">Twitter</a>
-        </Link>
-        <Link href="https://www.linkedin.com/in/selmankahya">
-          <a className="social-link">LinkedIn</a>
-        </Link>
-        <Link href="https://www.instagram.com/selmankahyax/?hl=en">
-          <a className="social-link">Instagram</a>
-        </Link>
+      <h1 className="title">Welcome to Next.js!</h1>
+      <p className="description">
+        To get started, edit <code>pages/index.js</code> and save to reload.
+      </p>
+
+      <div className="row">
+        <a href="https://nextjs.org/docs" className="card">
+          <h3>Documentation &rarr;</h3>
+          <p>Learn more about Next.js in the documentation.</p>
+        </a>
+        <a href="https://nextjs.org/learn" className="card">
+          <h3>Next.js Learn &rarr;</h3>
+          <p>Learn about Next.js by following an interactive tutorial!</p>
+        </a>
+        <a
+          href="https://github.com/zeit/next.js/tree/master/examples"
+          className="card"
+        >
+          <h3>Examples &rarr;</h3>
+          <p>Find other example boilerplates on the Next.js GitHub.</p>
+        </a>
       </div>
     </div>
 
-    {posts.map(post => (
-      <div className="blog">
-        <h2 className="blog-title">
-          <Link href={post.slug}>
-            <a className="blog-title-link">{post.title}</a>
-          </Link>
-        </h2>
-        <div className="blog-text">
-          <ReactMarkdown source={post.details} />
-        </div>
-        <div className="blog-date">{post.date}</div>
-      </div>
-    ))}
-
     <style jsx>{`
-      .container {
-        max-width: 650px;
-        width: 100%;
-        margin: 0 auto;
-      }
-
       .hero {
-        text-align: center;
-        margin: 96px 0;
+        width: 100%;
+        color: #333;
       }
-
-      .social-link {
-        margin-right: 8px;
-      }
-
-      .hero-title {
+      .title {
+        margin: 0;
+        width: 100%;
+        padding-top: 80px;
+        line-height: 1.15;
         font-size: 48px;
       }
-
-      .blog-date {
-        text-align: right;
-        color: #cccccc;
-        margin: 12px 0 48px 0;
+      .title,
+      .description {
+        text-align: center;
       }
-
-      a {
-        color: #35459e;
+      .row {
+        max-width: 880px;
+        margin: 80px auto 40px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+      .card {
+        padding: 18px 18px 24px;
+        width: 220px;
+        text-align: left;
         text-decoration: none;
+        color: #434343;
+        border: 1px solid #9b9b9b;
+      }
+      .card:hover {
+        border-color: #067df7;
+      }
+      .card h3 {
+        margin: 0;
+        color: #067df7;
+        font-size: 18px;
+      }
+      .card p {
+        margin: 0;
+        padding: 12px 0 0;
+        font-size: 13px;
+        color: #333;
       }
     `}</style>
   </div>
-);
+)
 
-Home.getInitialProps = async ({ req }) => {
-  // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
-  const res = await fetch("http://localhost:3000/api/posts");
-  const json = await res.json();
-  return { posts: json.posts };
-};
-
-export default Home;
+export default Home
