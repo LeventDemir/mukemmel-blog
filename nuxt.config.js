@@ -37,6 +37,12 @@ export default {
   */
   buildModules: [
   ],
+  /** 
+  server middleware
+  */
+  serverMiddleware: [
+    { path: '/api', handler: '@/server/index.js' },
+  ],
   /*
   ** Nuxt.js modules
   */
