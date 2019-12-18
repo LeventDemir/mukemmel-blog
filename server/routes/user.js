@@ -63,4 +63,19 @@ router.post('/logout', (req, res) => {
 })
 
 
+router.get('/is-auth', (req, res) => {
+    User.findOne({ token: req.query.token }, (err, user) => {
+        if (user) {
+            if (user.login + 2592000000 > new Date().getTime()) {
+                res.json({ auth: true })
+            } else {
+                res.json({ auth: false })
+            }
+        } else {
+            res.json({ auth: false })
+        }
+    })
+})
+
+
 module.exports = router
