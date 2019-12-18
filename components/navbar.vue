@@ -10,12 +10,12 @@
           </a>
 
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li>
-              <a href="sass.html">Home</a>
-            </li>
-            <li>
-              <a href="badges.html">About me</a>
-            </li>
+            <nuxt-link :to="{ name: 'index' }" tag="li">
+              <a>Home</a>
+            </nuxt-link>
+            <nuxt-link :to="{ name: 'about-me' }" tag="li">
+              <a>About me</a>
+            </nuxt-link>
             <li>
               <a href="collapsible.html">Login</a>
             </li>
@@ -31,9 +31,9 @@
       <nuxt-link :to="{ name: 'index' }" tag="li">
         <a class="waves-effect">Home</a>
       </nuxt-link>
-      <li>
+      <nuxt-link :to="{ name: 'about-me' }" tag="li">
         <a class="waves-effect">About me</a>
-      </li>
+      </nuxt-link>
       <li>
         <a class="waves-effect">Login</a>
       </li>

@@ -8,11 +8,7 @@
 
     <br />
 
-    <div class="row">
-      <Pagination />
-    </div>
-
-    <br />
+    <Pagination />
   </div>
 </template>
 

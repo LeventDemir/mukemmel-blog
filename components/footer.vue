@@ -6,7 +6,13 @@
           <h5 class="white-text">LeventCode</h5>
           <p
             class="grey-text text-lighten-4"
-          >You can use rows and columns here to organize your footer content.</p>
+          >You can use rows and columns here to organize your footer contentyour footer contentyour footer contentyour footer content.</p>
+          <p>
+            <i class="material-icons left">phone</i>+90 553 061 5830
+          </p>
+          <p>
+            <i class="material-icons left">email</i>leventcoding@gmail.com
+          </p>
         </div>
         <div class="col l4 offset-l2 s12">
           <h5 class="white-text">Menu</h5>

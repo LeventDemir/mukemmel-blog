@@ -5,14 +5,15 @@
     <main>
       <br />
       <br />
-      <br />
-      <br />
 
       <div class="container">
         <div class="row">
           <nuxt />
         </div>
       </div>
+
+      <br />
+      <br />
     </main>
 
     <Footer />
