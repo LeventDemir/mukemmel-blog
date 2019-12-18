@@ -3,7 +3,7 @@
     <nav class="indigo">
       <div class="container">
         <div class="nav-wrapper">
-          <a href="#" class="brand-logo">LeventCode</a>
+          <nuxt-link :to="{ name: 'index' }" tag="a" class="brand-logo">LeventCode</nuxt-link>
 
           <a data-target="slide-out" class="sidenav-trigger">
             <i class="material-icons">menu</i>
