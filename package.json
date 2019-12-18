@@ -1,15 +1,18 @@
 {
-  "name": "mukemmel-blog",
-  "version": "0.1.0",
+  "name": "LeventCode",
+  "version": "1.0.0",
+  "description": "My geometric Nuxt.js project",
+  "author": "Levent Demir",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
   },
   "dependencies": {
-    "next": "9.1.5",
-    "react": "16.12.0",
-    "react-dom": "16.12.0"
-  }
+    "nuxt": "^2.0.0",
+    "@nuxtjs/axios": "^5.3.6"
+  },
+  "devDependencies": {}
 }
