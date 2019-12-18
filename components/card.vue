@@ -7,7 +7,7 @@
       <span class="card-title activator grey-text text-darken-4">Card Title</span>
       <p>Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500'lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl .</p>
       <p>
-        <a href="#">learn more</a>
+        <a href="#">read more...</a>
       </p>
     </div>
   </div>
