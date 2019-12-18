@@ -1,6 +1,6 @@
 <template>
   <div class="col s12">
-    <div class="card">
+    <div class="card hoverable">
       <div class="card-content">
         <div class="row">
           <div class="input-field col s12">

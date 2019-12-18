@@ -16,9 +16,9 @@
             <nuxt-link :to="{ name: 'about-me' }" tag="li">
               <a>About me</a>
             </nuxt-link>
-            <li>
-              <a href="collapsible.html">Login</a>
-            </li>
+            <nuxt-link :to="{ name: 'login' }" tag="li">
+              <a>Login</a>
+            </nuxt-link>
           </ul>
         </div>
       </div>
@@ -34,9 +34,9 @@
       <nuxt-link :to="{ name: 'about-me' }" tag="li">
         <a class="waves-effect">About me</a>
       </nuxt-link>
-      <li>
+      <nuxt-link :to="{ name: 'login' }" tag="li">
         <a class="waves-effect">Login</a>
-      </li>
+      </nuxt-link>
     </ul>
   </header>
 </template>

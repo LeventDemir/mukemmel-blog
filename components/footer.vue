@@ -20,12 +20,12 @@
             <nuxt-link :to="{ name: 'index' }" tag="li">
               <a class="grey-text text-lighten-3">Home</a>
             </nuxt-link>
-            <li>
-              <a class="grey-text text-lighten-3" href="#!">About me</a>
-            </li>
-            <li>
+            <nuxt-link :to="{ name: 'about-me' }" tag="li">
+              <a class="grey-text text-lighten-3">About me</a>
+            </nuxt-link>
+            <nuxt-link :to="{ name: 'login' }" tag="li">
               <a class="grey-text text-lighten-3" href="#!">Login</a>
-            </li>
+            </nuxt-link>
           </ul>
         </div>
       </div>
