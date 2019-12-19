@@ -16,7 +16,10 @@
             <nuxt-link :to="{ name: 'about-me' }" tag="li">
               <a>About me</a>
             </nuxt-link>
-            <nuxt-link :to="{ name: 'login' }" tag="li">
+            <li v-if="$store.getters['user/getAuth']">
+              <a @click="$store.dispatch('user/logout')">Logout</a>
+            </li>
+            <nuxt-link v-else :to="{ name: 'login' }" tag="li">
               <a>Login</a>
             </nuxt-link>
           </ul>
@@ -28,13 +31,16 @@
       <li>
         <a class="subheader">Menu</a>
       </li>
-      <nuxt-link :to="{ name: 'index' }" tag="li">
+      <nuxt-link @click.native="close" :to="{ name: 'index' }" tag="li">
         <a class="waves-effect">Home</a>
       </nuxt-link>
-      <nuxt-link :to="{ name: 'about-me' }" tag="li">
+      <nuxt-link @click.native="close" :to="{ name: 'about-me' }" tag="li">
         <a class="waves-effect">About me</a>
       </nuxt-link>
-      <nuxt-link :to="{ name: 'login' }" tag="li">
+      <li v-if="$store.getters['user/getAuth']">
+        <a @click="logout">Logout</a>
+      </li>
+      <nuxt-link v-else @click.native="close" :to="{ name: 'login' }" tag="li">
         <a class="waves-effect">Login</a>
       </nuxt-link>
     </ul>
@@ -47,6 +53,17 @@ export default {
   mounted() {
     const elems = document.querySelectorAll(".sidenav");
     M.Sidenav.init(elems);
+  },
+  methods: {
+    close() {
+      const elem = document.getElementById("slide-out");
+      const instance = M.Sidenav.getInstance(elem);
+      instance.close();
+    },
+    logout() {
+      this.$store.dispatch("user/logout");
+      this.close();
+    }
   }
 };
 </script>
