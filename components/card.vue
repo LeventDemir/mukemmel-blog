@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card hoverable">
     <div class="card-image waves-effect waves-block waves-light">
       <img class="activator" src="https://images.pexels.com/photos/3337210/pexels-photo-3337210.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
     </div>
