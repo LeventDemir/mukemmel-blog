@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
+    "js-cookie": "^2.2.1",
     "mongoose": "^5.8.1",
     "nuxt": "^2.0.0"
   },
