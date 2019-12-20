@@ -1,49 +1,38 @@
 const express = require('express')
 const User = require('../models/user')
 const Post = require('../models/post')
+const admin = require('../middleware/admin')
 
 const router = express.Router()
 
 
-router.post('/create', (req, res) => {
+router.post('/create', admin, (req, res) => {
     const data = req.body
 
-    User.findOne({ token: req.query.token }, (err, user) => {
-        if (user) {
-            Post(data).save(err => {
-                if (err) {
-                    res.json({ success: false })
-                } else {
-                    res.json({ success: true })
-                }
-            })
-        } else {
+    Post(data).save(err => {
+        if (err) {
             res.json({ success: false })
+        } else {
+            res.json({ success: true })
         }
     })
 })
 
 
-router.post('/edit', (req, res) => {
+router.post('/edit', admin, (req, res) => {
     const data = req.body
 
-    User.findOne({ token: req.query.token }, (err, user) => {
-        if (user) {
-            Post.findOne({ _id: data._id }, (err, post) => {
-                if (post) {
-                    post.photo = data.photo
-                    post.title = data.title
-                    post.article = data.article
+    Post.findOne({ _id: data._id }, (err, post) => {
+        if (post) {
+            post.photo = data.photo
+            post.title = data.title
+            post.article = data.article
 
-                    post.save(err => {
-                        if (err) {
-                            res.json({ success: false })
-                        } else {
-                            res.json({ success: true })
-                        }
-                    })
-                } else {
+            post.save(err => {
+                if (err) {
                     res.json({ success: false })
+                } else {
+                    res.json({ success: true })
                 }
             })
         } else {
