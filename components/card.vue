@@ -10,7 +10,7 @@
         <nuxt-link :to="{name:'post-id', params: { id: data._id }}" tag="a">read more...</nuxt-link>
       </p>
     </div>
-    <div class="card-action">
+    <div v-if="admin" class="card-action">
       <nuxt-link
         :to="{ name: 'dashboard-update-post-id', params: { id: data._id } }"
         class="green-text"

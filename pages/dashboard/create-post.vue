@@ -1,6 +1,6 @@
 <template>
   <div class="col s12">
-    <PostForm />
+    <PostForm operation="create" />
   </div>
 </template>
 

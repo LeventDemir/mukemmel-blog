@@ -1,23 +1,23 @@
 <template>
   <div class="card hoverable">
     <div class="card-content">
-      <form @submit.prevent="create">
+      <form @submit.prevent="submit">
         <div class="row">
           <div class="input-field col s12">
             <input id="title" v-model="post.title" type="text" class="validate" required />
-            <label for="title">Title</label>
+            <label for="title" :class="{ 'active' : post.title }">Title</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
             <input id="article" v-model="post.article" type="text" class="validate" required />
-            <label for="article">Article</label>
+            <label for="article" :class="{ 'active' : post.title }">Article</label>
           </div>
         </div>
         <div class="file-field input-field">
           <div class="btn amber">
             <span>Photo</span>
-            <input type="file" accept="image/*" @change="uploadPhoto" required />
+            <input type="file" accept="image/*" @change="uploadPhoto" :required="!post.photo" />
           </div>
           <div class="file-path-wrapper">
             <input class="file-path validate" type="text" />
@@ -35,6 +35,16 @@
 
 <script>
 export default {
+  props: {
+    operation: {
+      type: String,
+      required: true
+    },
+    data: {
+      type: Object,
+      required: false
+    }
+  },
   data() {
     return {
       post: {
@@ -44,9 +54,20 @@ export default {
       }
     };
   },
+  mounted() {
+    if (this.operation === "edit") {
+      this.post.photo = this.data.photo;
+      this.post.title = this.data.title;
+      this.post.article = this.data.article;
+    }
+  },
   methods: {
-    create() {
-      this.$store.dispatch("post/create", this.post);
+    submit() {
+      if (this.operation === "create") {
+        this.$store.dispatch("post/create", this.post);
+      } else {
+        this.$store.dispatch("post/edit", { ...this.post, _id: this.data._id });
+      }
     },
     uploadPhoto(e) {
       const files = e.target.files || e.dataTransfer.files;

@@ -2,7 +2,7 @@
   <div class="col s12">
     <div class="row">
       <div v-for="post in $store.getters['post/getPosts']" :key="post._id" class="col s12 m6">
-        <Card :data="post" />
+        <Card :data="post" :admin="false" />
       </div>
     </div>
 
