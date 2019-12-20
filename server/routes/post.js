@@ -24,4 +24,15 @@ router.post('/create', (req, res) => {
 })
 
 
+router.get('/posts', (req, res) => {
+    Post.find({}, (err, posts) => {
+        if (posts) {
+            res.json(posts)
+        } else {
+            res.json({ success: false })
+        }
+    })
+})
+
+
 module.exports = router

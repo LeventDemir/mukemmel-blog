@@ -1,14 +1,39 @@
 <template>
   <div class="card hoverable">
     <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="https://images.pexels.com/photos/3337210/pexels-photo-3337210.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
+      <img class="activator" :src="data.photo" />
     </div>
     <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">Card Title</span>
-      <p>Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500'lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl .</p>
+      <span class="card-title activator grey-text text-darken-4">{{ data.title }}</span>
+      <p>{{ data.article }}</p>
       <p>
-        <a href="#">read more...</a>
+        <nuxt-link :to="{name:'post-id', params: { id: data._id }}" tag="a">read more...</nuxt-link>
       </p>
+    </div>
+    <div class="card-action">
+      <nuxt-link
+        :to="{ name: 'dashboard-update-post-id', params: { id: data._id } }"
+        class="green-text"
+        tag="a"
+      >Edit</nuxt-link>
+      <a class="red-text right">Delete</a>
     </div>
   </div>
 </template>
+
+
+<script>
+export default {
+  props: {
+    data: {
+      type: Object,
+      required: true
+    },
+    admin: {
+      type: Boolean,
+      required: true,
+      default: false
+    }
+  }
+};
+</script>

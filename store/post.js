@@ -18,15 +18,19 @@ export const mutations = {
 
 
 export const actions = {
-    create({ rootGetters }, post) {
+    create({ rootGetters, dispatch }, post) {
         this.$axios.post('/post/create', post, { params: { token: rootGetters['user/getToken'] } })
             .then(response => {
                 if (response.data.success) {
+                    dispatch('posts')
                     M.toast({ html: 'post created successfully', classes: 'green' })
                     this.$router.push({ name: 'dashboard' })
                 } else {
                     M.toast({ html: 'something went wrong', classes: 'red' })
                 }
             })
+    },
+    posts({ commit }) {
+        return this.$axios.get('/post/posts').then(response => commit('setPosts', response.data))
     }
 }

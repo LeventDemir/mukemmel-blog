@@ -11,8 +11,8 @@
     <br />
 
     <div class="row">
-      <div v-for="i in 6" :key="i" class="col s12 m6">
-        <Card />
+      <div v-for="post in $store.getters['post/getPosts']" :key="post._id" class="col s12 m6">
+        <Card :data="post" :admin="true" />
       </div>
     </div>
 
