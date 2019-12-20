@@ -28,6 +28,7 @@ import Card from "@/components/card";
 import Pagination from "@/components/pagination";
 
 export default {
+  middleware: "auth",
   components: { Card, Pagination }
 };
 </script>

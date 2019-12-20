@@ -16,6 +16,14 @@
             <nuxt-link :to="{ name: 'about-me' }" tag="li">
               <a>About me</a>
             </nuxt-link>
+            <nuxt-link
+              v-if="$store.getters['user/getAuth']"
+              @click.native="close"
+              :to="{ name: 'dashboard' }"
+              tag="li"
+            >
+              <a class="waves-effect">Dashboard</a>
+            </nuxt-link>
             <li v-if="$store.getters['user/getAuth']">
               <a @click="$store.dispatch('user/logout')">Logout</a>
             </li>
@@ -36,6 +44,14 @@
       </nuxt-link>
       <nuxt-link @click.native="close" :to="{ name: 'about-me' }" tag="li">
         <a class="waves-effect">About me</a>
+      </nuxt-link>
+      <nuxt-link
+        v-if="$store.getters['user/getAuth']"
+        @click.native="close"
+        :to="{ name: 'dashboard' }"
+        tag="li"
+      >
+        <a class="waves-effect">Dashboard</a>
       </nuxt-link>
       <li v-if="$store.getters['user/getAuth']">
         <a @click="logout">Logout</a>

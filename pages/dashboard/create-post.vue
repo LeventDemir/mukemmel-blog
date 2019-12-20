@@ -9,6 +9,7 @@
 import PostForm from "@/components/post-from";
 
 export default {
+  middleware: "auth",
   components: { PostForm }
 };
 </script>

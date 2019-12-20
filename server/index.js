@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 const app = express()
 
 const user = require('./routes/user')
+const post = require('./routes/post')
 
 
 mongoose.connect('mongodb://localhost/leventcode', {
@@ -18,8 +19,9 @@ mongoose.connection.on("open", () => console.log("✔ Connected to mongodb"));
 mongoose.connection.on("error", () => console.log('!Mongodb connection error'));
 
 
-app.use(bodyParser.json())
+app.use(bodyParser.json({ limit: '5mb' }))
 app.use('/user', user)
+app.use('/post', post)
 
 
 module.exports = app;
