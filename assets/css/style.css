@@ -1,0 +1,9 @@
+a{
+    cursor: pointer;
+}
+
+.hide-article {
+    height:83px; 
+    line-height:20px; 
+    overflow:hidden;
+}

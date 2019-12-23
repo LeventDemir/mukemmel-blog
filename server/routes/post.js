@@ -42,6 +42,23 @@ router.post('/edit', admin, (req, res) => {
 })
 
 
+router.post('/delete', admin, (req, res) => {
+    Post.findOne({ _id: req.body.post }, (err, post) => {
+        if (post) {
+            post.remove(err => {
+                if (err) {
+                    res.json({ success: false })
+                } else {
+                    res.json({ success: true })
+                }
+            })
+        } else {
+            res.json({ success: false })
+        }
+    })
+})
+
+
 router.get('/posts', (req, res) => {
     Post.find({}, (err, posts) => {
         if (posts) {

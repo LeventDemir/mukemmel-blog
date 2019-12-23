@@ -5,7 +5,7 @@
     </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4">{{ data.title }}</span>
-      <p>{{ data.article }}</p>
+      <p class="hide-article">{{ data.article }}</p>
       <p>
         <nuxt-link :to="{name:'post-id', params: { id: data._id }}" tag="a">read more...</nuxt-link>
       </p>
@@ -16,7 +16,7 @@
         class="green-text"
         tag="a"
       >Edit</nuxt-link>
-      <a class="red-text right">Delete</a>
+      <a @click="$store.dispatch('post/delete', data._id)" class="red-text right">Delete</a>
     </div>
   </div>
 </template>
