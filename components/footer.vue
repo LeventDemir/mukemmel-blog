@@ -23,8 +23,11 @@
             <nuxt-link :to="{ name: 'about-me' }" tag="li">
               <a class="grey-text text-lighten-3">About me</a>
             </nuxt-link>
-            <nuxt-link :to="{ name: 'login' }" tag="li">
+            <nuxt-link v-if="!$store.getters['user/getAuth']" :to="{ name: 'login' }" tag="li">
               <a class="grey-text text-lighten-3" href="#!">Login</a>
+            </nuxt-link>
+            <nuxt-link v-else :to="{ name: 'dashboard' }" tag="li">
+              <a class="grey-text text-lighten-3" href="#!">Dashboard</a>
             </nuxt-link>
           </ul>
         </div>
@@ -32,7 +35,7 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-        <div class="center">© 2014 Copyright Text</div>
+        <div class="center">© 2019 Copyright Text</div>
       </div>
     </div>
   </footer>
