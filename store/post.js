@@ -1,11 +1,15 @@
 export const state = () => ({
-    posts: []
+    posts: [],
+    pageCount: null
 })
 
 
 export const getters = {
     getPosts(state) {
         return state.posts
+    },
+    getPageCount(state) {
+        return state.pageCount
     }
 }
 
@@ -13,6 +17,9 @@ export const getters = {
 export const mutations = {
     setPosts(state, posts) {
         state.posts = posts
+    },
+    setPageCount(state, pageCount) {
+        state.pageCount = Math.ceil(+pageCount / 4)
     }
 }
 
@@ -53,8 +60,12 @@ export const actions = {
                 }
             })
     },
-    posts({ commit }) {
-        return this.$axios.get('/post/posts').then(response => commit('setPosts', response.data))
+    posts({ commit }, page) {
+        return this.$axios.get('/post/posts', { params: { page } })
+            .then(response => {
+                commit('setPosts', response.data.posts)
+                commit('setPageCount', response.data.count)
+            })
     },
     post({ }, post) {
         return this.$axios.get('/post/post', { params: { post } })

@@ -8,7 +8,7 @@ export const actions = {
             await commit("user/setToken", token)
 
             await dispatch('user/auth')
-            await dispatch('post/posts')
+            await dispatch('post/posts', 1)
         }
     }
 }

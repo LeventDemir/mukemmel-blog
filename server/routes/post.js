@@ -60,9 +60,13 @@ router.post('/delete', admin, (req, res) => {
 
 
 router.get('/posts', (req, res) => {
-    Post.find({}, (err, posts) => {
+    const skip = (req.query.page - 1) * 4
+
+    Post.find({}, null, { limit: 4, skip }, (err, posts) => {
         if (posts) {
-            res.json(posts)
+            Post.countDocuments({}, (err, count) => {
+                res.json({ posts, count })
+            })
         } else {
             res.json({ success: false })
         }
