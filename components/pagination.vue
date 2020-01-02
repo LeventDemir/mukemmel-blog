@@ -26,13 +26,16 @@
 export default {
   data() {
     return {
-      currentPage: 1,
+      currentPage: null,
       pageNumbers: [1, 2, 3, 4]
     };
   },
+  mounted(){
+    this.currentPage = this.$route.query.page || 1
+  },
   methods: {
     nextPage() {
-      if (this.$store.getters['post/getPageCount'] >= this.currentPage + 1) {
+      if (this.$store.getters["post/getPageCount"] >= this.currentPage + 1) {
         this.currentPage++;
 
         if (this.currentPage > 4) {
@@ -57,10 +60,17 @@ export default {
     },
     goPage(page) {
       this.currentPage = page;
+      if ((page = 4)) {
+        this.pageNumbers = [1, 2, 3, 4];
+      }
     }
   },
   watch: {
     currentPage() {
+      this.$router.push({
+        name: this.$route.name,
+        query: { page: this.currentPage }
+      });
       this.$store.dispatch("post/posts", this.currentPage);
     }
   }

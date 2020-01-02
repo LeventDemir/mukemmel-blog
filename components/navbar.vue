@@ -18,8 +18,7 @@
             </nuxt-link>
             <nuxt-link
               v-if="$store.getters['user/getAuth']"
-              @click.native="close"
-              :to="{ name: 'dashboard' }"
+              :to="{ name: 'dashboard', query: { page: 1 } }"
               tag="li"
             >
               <a class="waves-effect">Dashboard</a>
@@ -48,7 +47,7 @@
       <nuxt-link
         v-if="$store.getters['user/getAuth']"
         @click.native="close"
-        :to="{ name: 'dashboard' }"
+        :to="{ name: 'dashboard', query: { page: 1 } }"
         tag="li"
       >
         <a class="waves-effect">Dashboard</a>

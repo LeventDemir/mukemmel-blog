@@ -16,7 +16,10 @@
         class="green-text"
         tag="a"
       >Edit</nuxt-link>
-      <a @click="$store.dispatch('post/delete', data._id)" class="red-text right">Delete</a>
+      <a
+        @click="$store.dispatch('post/delete', { id: data._id, page: $route.query.page })"
+        class="red-text right"
+      >Delete</a>
     </div>
   </div>
 </template>

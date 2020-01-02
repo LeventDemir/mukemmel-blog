@@ -26,7 +26,7 @@
             <nuxt-link v-if="!$store.getters['user/getAuth']" :to="{ name: 'login' }" tag="li">
               <a class="grey-text text-lighten-3" href="#!">Login</a>
             </nuxt-link>
-            <nuxt-link v-else :to="{ name: 'dashboard' }" tag="li">
+            <nuxt-link v-else :to="{ name: 'dashboard', query: { page: 1 } }" tag="li">
               <a class="grey-text text-lighten-3" href="#!">Dashboard</a>
             </nuxt-link>
           </ul>

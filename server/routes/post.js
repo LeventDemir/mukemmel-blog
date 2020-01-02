@@ -62,7 +62,7 @@ router.post('/delete', admin, (req, res) => {
 router.get('/posts', (req, res) => {
     const skip = (req.query.page - 1) * 4
 
-    Post.find({}, null, { limit: 4, skip }, (err, posts) => {
+    Post.find({}, (err, posts) => {
         if (posts) {
             Post.countDocuments({}, (err, count) => {
                 res.json({ posts, count })
@@ -71,6 +71,9 @@ router.get('/posts', (req, res) => {
             res.json({ success: false })
         }
     })
+        .sort({ $natural: -1 })
+        .limit(4)
+        .skip(skip)
 })
 
 

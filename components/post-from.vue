@@ -25,7 +25,7 @@
         </div>
         <br />
         <div class="row center">
-          <button class="btn indigo">Create</button>
+          <button class="btn indigo">{{ operation }}</button>
         </div>
       </form>
     </div>
