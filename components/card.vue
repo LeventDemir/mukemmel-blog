@@ -5,7 +5,7 @@
     </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4">{{ data.title }}</span>
-      <p class="hide-article">{{ data.article }}</p>
+      <div class="hide-article" v-html="data.article"/>
       <p>
         <nuxt-link :to="{name:'post-id', params: { id: data._id }}" tag="a">read more...</nuxt-link>
       </p>

@@ -10,8 +10,7 @@
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <input id="article" v-model="post.article" type="text" class="validate" required />
-            <label for="article" :class="{ 'active' : post.title }">Article</label>
+            <VueEditor v-model="post.article" />
           </div>
         </div>
         <div class="file-field input-field">

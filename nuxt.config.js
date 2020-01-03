@@ -31,7 +31,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    { src: '@/plugins/materialize.min.js', ssr: false }
+    { src: '@/plugins/materialize.min.js', ssr: false },
+    { src: '@/plugins/vue-editor.js', ssr: false }
   ],
   /*
   ** Nuxt.js dev-modules
